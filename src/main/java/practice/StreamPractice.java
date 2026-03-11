@@ -31,7 +31,7 @@ public class StreamPractice {
                 .min(Integer::compareTo);
 
         return min.orElseThrow(()
-                -> new RuntimeException("Can't get min value from list:" + numbers));
+                -> new RuntimeException("Can't get min value from list: " + numbers));
 
     }
 
