@@ -59,8 +59,8 @@ public class StreamPractice {
      */
     public List<Person> selectMenByAge(List<Person> peopleList, int fromAge, int toAge) {
         return peopleList.stream()
-                .filter(s -> s.getSex() == Person.Sex.MAN)
-                .filter(s -> s.getAge() >= fromAge && s.getAge() <= toAge)
+                .filter(s -> s.getSex() == Person.Sex.MAN
+                && s.getAge() >= fromAge && s.getAge() <= toAge)
                 .collect(Collectors.toList());
 
     }
@@ -80,7 +80,7 @@ public class StreamPractice {
         Predicate<Person> firstPred = m -> ((m.getSex() == Person.Sex.MAN)
                 && (m.getAge() >= fromAge) && (m.getAge() <= maleToAge))
                 || (m.getSex() == Person.Sex.WOMAN
-                && m.getAge() <= femaleToAge);
+                && m.getAge() <= femaleToAge && m.getAge() >= fromAge);
 
         return peopleList.stream()
                 .filter(p -> p.getAge() >= fromAge)
